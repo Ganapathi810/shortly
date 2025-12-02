@@ -1,7 +1,7 @@
 const frontendUrl = process.env.FRONTEND_URL
 
 export const getSystemDetails = async () => {
-    const response = await fetch(`/healthz`)
+    const response = await fetch(`${frontendUrl}/healthz`)
 
     if(!response.ok) {
         const errorResponse = await response.json()
