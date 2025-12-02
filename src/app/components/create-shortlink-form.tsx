@@ -56,7 +56,6 @@ export const CreateShortLinkForm = () => {
         setError(newErrors)
 
         if(Object.keys(newErrors).length) {
-            console.log('inside prevent')
             e.preventDefault()
             setError(newErrors)
             return

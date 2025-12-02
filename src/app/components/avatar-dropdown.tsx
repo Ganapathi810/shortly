@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect } from "react";
 import { useUser } from "@stackframe/stack";
 import { stackClientApp } from "@/stack/client";
 
@@ -20,11 +19,6 @@ export const AvatarDropdown = () => {
     const handleSignOut = async () => {
         await stackClientApp.signOut()
     }
-
-    useEffect(() => {
-        console.log("Avatar mounted")
-        console.log("profile image url in efffect "+user?.profileImageUrl)
-    },[])
 
     return (
         <DropdownMenu>

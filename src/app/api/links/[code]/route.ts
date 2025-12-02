@@ -6,8 +6,6 @@ import { prisma } from "@/lib/prisma-client";
 export const GET = async (_: any, { params }: { params: Promise<{ code: string }> }) => {
     const { code } = await params;
 
-    console.log("Code: ", code)
-
     try {
         const data = await prisma.shortLink.findUnique({
             where: { shortCode: code }
