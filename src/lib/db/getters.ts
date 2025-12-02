@@ -1,3 +1,5 @@
+const frontendUrl = process.env.FRONTEND_URL
+
 export const getSystemDetails = async () => {
     const response = await fetch(`/healthz`)
 
@@ -13,7 +15,7 @@ export const getSystemDetails = async () => {
 }
 
 export const getAllShortLinks = async () => {
-    const response = await fetch(`/api/links`,{
+    const response = await fetch(`${frontendUrl}/api/links`,{
         next: {
             tags: ["shortlinks"]
         }
@@ -31,7 +33,7 @@ export const getAllShortLinks = async () => {
 }
 
 export const getShortLinkByCode = async (code: string) => {
-    const response = await fetch(`/api/links/${code}`)
+    const response = await fetch(`${frontendUrl}/api/links/${code}`)
 
     if(!response.ok) {
         const errorResponse = await response.json()
