@@ -10,6 +10,8 @@ export const GET = async (_: any, { params }: { params: Promise<{ code: string }
     const headersList = await headers()
 
     const clientIP = headersList.get("x-forwarded-for")?.split(',')[0]
+
+    console.log("ClientIP: ",clientIP)
     
     try {
         const data = await prisma.shortLink.findUnique({
@@ -26,6 +28,8 @@ export const GET = async (_: any, { params }: { params: Promise<{ code: string }
         }
 
         const response = await getClientLocationDetails(clientIP || "no ip address")
+
+        console.log("response from fetch for location : ",response)
         
         await prisma.shortLink.update({
             where: { shortCode: code },
