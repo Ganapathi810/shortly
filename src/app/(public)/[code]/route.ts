@@ -34,9 +34,9 @@ export const GET = async (_: any, { params }: { params: Promise<{ code: string }
         await prisma.shortLink.update({
             where: { shortCode: code },
             data: {
+                lastRedirectLocation: response.data ? response.data : undefined,
                 clickCount: data.clickCount + 1,
                 lastClickedAt: new Date(),
-                locations: response.data ? [response.data] : undefined
             }
         })
 

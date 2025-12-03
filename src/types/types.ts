@@ -18,9 +18,9 @@ export type ShortLinkType = {
     createdAt: Date,
     lastClickedAt: Date | null,
     clickCount: number,
-    locations: {
+    lastRedirectLocation?: {
         city: string,
         region: string,
-        country: string
-    }[]      
+        country_name: string
+    } | null 
 }

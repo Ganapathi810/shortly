@@ -15,13 +15,14 @@ datasource db {
 
 
 model ShortLink {
-  id               String      @id @default(cuid())
-  shortCode        String      @unique
-  originalUrl      String      
-  userId           String
-  createdAt        DateTime    @default(now())
-  lastClickedAt    DateTime?  
-  clickCount       Int       @default(0)
-  locations        Json?
+  id                    String      @id @default(cuid())
+  shortCode             String      @unique
+  originalUrl           String      
+  userId                String
+  createdAt             DateTime    @default(now())
+  lastClickedAt         DateTime?  
+  clickCount            Int         @default(0)
+  lastRedirectLocation  Json?
+  updatedAt             DateTime    @updatedAt
   @@index([userId])
 }
