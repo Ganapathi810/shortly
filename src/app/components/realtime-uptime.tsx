@@ -12,7 +12,7 @@ export default function RealtimeUptime({ uptimeInSeconds }: { uptimeInSeconds: n
         },1000)
 
         return () => clearInterval(interval)
-    }) 
+    },[]) 
 
     return <span>{formatUptime(seconds)}</span>
 }
